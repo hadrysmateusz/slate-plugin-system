@@ -1,0 +1,16 @@
+{
+	"name": "@slate-plugin-system/core",
+	"description": "Core logic for managing and creating slate plugins",
+	"version": "0.1.0",
+	"main": "src/index.ts",
+	"dependencies": {
+		"slate": "0.57.1",
+		"slate-react": "0.57.1",
+		"react": "^16.13.0",
+		"react-dom": "^16.13.0",
+		"lodash": "^4.17.15"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	}
+}
