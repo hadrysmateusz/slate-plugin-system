@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "jsx": "react"
+  },
+  "exclude": ["node_modules", "dist"],
+  "awesomeTypescriptLoaderOptions": {
+    "ignoreDiagnostics": [7005]
+  }
+}
