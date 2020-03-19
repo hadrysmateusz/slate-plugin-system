@@ -7,3 +7,6 @@ node_modules
 
 # Lerna
 **/lerna-debug.log
+
+# Todos file
+TODO.md
