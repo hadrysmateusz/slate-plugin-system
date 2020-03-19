@@ -9,22 +9,22 @@ import { Editable, useCreateEditor } from "@slate-plugin-system/core"
 /* import all plugins from their respective packages here */
 
 const plugins = [
-	/* replace with any plugins you need */
-	BoldPlugin({ hotkey: "mod+b" }),
-	ItalicPlugin({ hotkey: "mod+i" }),
-	InlineCodePlugin({ hotkey: "mod+e" })
+  /* replace with any plugins you need */
+  BoldPlugin({ hotkey: "mod+b" }),
+  ItalicPlugin({ hotkey: "mod+i" }),
+  InlineCodePlugin({ hotkey: "mod+e" })
 ]
 
 const App = () => {
-	const [value, setValue] = useState(/* initialValue */)
-	const editor = useCreateEditor(plugins)
-	const onChange = (value) => setValue(value)
+  const [value, setValue] = useState(/* initialValue */)
+  const editor = useCreateEditor(plugins)
+  const onChange = (value) => setValue(value)
 
-	return (
-		<Slate editor={editor} value={value} onChange={onChange}>
-			<Editable plugins={plugins} />
-		</Slate>
-	)
+  return (
+    <Slate editor={editor} value={value} onChange={onChange}>
+      <Editable plugins={plugins} />
+    </Slate>
+  )
 }
 ```
 
@@ -42,13 +42,13 @@ import { renderElementList } from "./renderElement"
 import { onKeyDownList } from "./onKeyDown"
 
 interface ListPluginOptions {
-	listTypes: string[]
+  listTypes: string[]
 }
 
 export const ListPlugin = (options?: ListPluginOptions): SlatePlugin => ({
-	renderElement: renderElementList(options),
-	onKeyDown: onKeyDownList(options),
-	editorOverrides: withList(options)
+  renderElement: renderElementList(options),
+  onKeyDown: onKeyDownList(options),
+  editorOverrides: withList(options)
 })
 ```
 

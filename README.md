@@ -44,22 +44,22 @@ import { Editable, useCreateEditor } from "@slate-plugin-system/core"
 /* import all plugins from their respective packages here */
 
 const plugins = [
-	/* replace with any plugins you need */
-	BoldPlugin({ hotkey: "mod+b" }),
-	ItalicPlugin({ hotkey: "mod+i" }),
-	InlineCodePlugin({ hotkey: "mod+e" })
+  /* replace with any plugins you need */
+  BoldPlugin({ hotkey: "mod+b" }),
+  ItalicPlugin({ hotkey: "mod+i" }),
+  InlineCodePlugin({ hotkey: "mod+e" })
 ]
 
 const App = () => {
-	const [value, setValue] = useState(/* initialValue */)
-	const editor = useCreateEditor(plugins)
-	const onChange = (value) => setValue(value)
+  const [value, setValue] = useState(/* initialValue */)
+  const editor = useCreateEditor(plugins)
+  const onChange = (value) => setValue(value)
 
-	return (
-		<Slate editor={editor} value={value} onChange={onChange}>
-			<Editable plugins={plugins} />
-		</Slate>
-	)
+  return (
+    <Slate editor={editor} value={value} onChange={onChange}>
+      <Editable plugins={plugins} />
+    </Slate>
+  )
 }
 ```
 
@@ -71,12 +71,12 @@ A plugin in its simplest form is just an object. It contains properties that ove
 
 ```ts
 interface SlatePlugin {
-	renderElement?: RenderElement
-	renderLeaf?: RenderLeaf
-	editorOverrides?: EditorOverrides
-	onKeyDown?: OnKeyDown
-	decorate?: Decorate
-	onDOMBeforeInput?: OnDOMBeforeInput
+  renderElement?: RenderElement
+  renderLeaf?: RenderLeaf
+  editorOverrides?: EditorOverrides
+  onKeyDown?: OnKeyDown
+  decorate?: Decorate
+  onDOMBeforeInput?: OnDOMBeforeInput
 }
 ```
 
@@ -103,25 +103,25 @@ import { withSomething } from "some-other-plugin"
 
 const HistoryPlugin = () => ({ editorOverrides: withHistory })
 const ListPlugin = (options) => ({
-	editorOverrides: withList(options),
-	renderElement: renderList(options)
+  editorOverrides: withList(options),
+  renderElement: renderList(options)
 })
 
 const plugins = [
-	HistoryPlugin(),
-	ListPlugin({ listTypes: ["bulleted", "numbered", "todo"] })
+  HistoryPlugin(),
+  ListPlugin({ listTypes: ["bulleted", "numbered", "todo"] })
 ]
 
 const App = () => {
-	const [value, setValue] = useState(/* initialValue */)
-	const onChange = (value) => setValue(value)
-	let editor = useCreateEditor(plugins)
-	editor = withSomething(editor)
+  const [value, setValue] = useState(/* initialValue */)
+  const onChange = (value) => setValue(value)
+  let editor = useCreateEditor(plugins)
+  editor = withSomething(editor)
 
-	return (
-		<Slate editor={editor} value={value} onChange={onChange}>
-			<Editable plugins={plugins} renderElement={[renderHeadings({ levels: 6 })]} />
-		</Slate>
-	)
+  return (
+    <Slate editor={editor} value={value} onChange={onChange}>
+      <Editable plugins={plugins} renderElement={[renderHeadings({ levels: 6 })]} />
+    </Slate>
+  )
 }
 ```

@@ -26,8 +26,8 @@ Function for [rendering leaves](https://docs.slatejs.org/concepts/08-rendering#l
 
 ```js
 const withSomething = (editor) => {
-	/* modify editor object */
-	return editor
+  /* modify editor object */
+  return editor
 }
 ```
 
