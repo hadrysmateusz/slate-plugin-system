@@ -52,7 +52,6 @@ const App = () => {
 
 	return (
 		<Slate editor={editor} value={value} onChange={onChange}>
-			****
 			<Editable plugins={plugins} />
 		</Slate>
 	)
