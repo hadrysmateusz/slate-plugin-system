@@ -88,9 +88,9 @@ slate-plugin-system is based on [slate-plugins-next](https://github.com/zbeyens/
 
 There are many ways existing code can be integrated with this library, this flexibility can make migrating an existing codebase a lot easier.
 
-- you can quickly create wrapper object for editorOverrides and other plugin components and add them to your plugins array
-- you can wrap the editor object returned by `useCreateEditor` with [vanilla Slate plugins](https://docs.slatejs.org/concepts/07-plugins) like you would in any other slate project
-- you can pass multiple components of a slate plugin like `onKeyDown`, `decorate`, `renderLeaf` etc. into the Editable component as props
+- create a wrapper object for editorOverrides and other plugin components, and add them to your plugins array
+- wrap the editor object returned by `useCreateEditor` with [vanilla Slate plugins](https://docs.slatejs.org/concepts/07-plugins) like you would in any other slate project
+- you can pass multiple slate plugin components (`onKeyDown`, `decorate`, `renderLeaf` etc.) into the Editable component as props
 
 This is an example using all of the above approaches. Keep in mind this is just for demonstration purposes and it's recommended to convert all of your legacy plugins and other plugin elements into full slate-plugin-system plugins.
 
