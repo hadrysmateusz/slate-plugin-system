@@ -1,13 +1,32 @@
 {
-  "private": true,
-  "name": "slate-plugin-system",
-  "description": "A plugin system for Slate",
-  "workspaces": [
-    "packages/*"
+  "name": "@slate-plugin-system/core",
+  "description": "Core logic for managing and creating slate plugins",
+  "version": "0.1.2",
+  "license": "MIT",
+  "homepage": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
   ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "refresh-dependencies": "rm -rf node_modules yarn.lock && lerna clean -y && yarn cache clean && lerna bootstrap",
-    "bootstrap": "lerna bootstrap"
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "webpack --mode production",
+    "build-dev": "webpack -d --mode development"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -15,14 +34,27 @@
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2",
     "typescript": "3.8.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "yarn": "^1.22.4",
-    "rimraf": "^3.0.2"
+    "@babel/preset-typescript": "^7.8.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.9.2",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",    
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1"
   }
 }

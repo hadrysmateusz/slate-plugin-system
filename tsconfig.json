@@ -21,3 +21,17 @@
     "ignoreDiagnostics": [7005]
   }
 }
+
+
+// {
+//   "extends": "../../tsconfig.json",
+//   "compilerOptions": {
+//     "baseUrl": "src",
+//     "sourceMap": true,
+//     "declaration": true,
+//     "declarationMap": true,
+//     "declarationDir": "./dist",
+//     "outDir": "./dist"
+//   },
+//   "include": ["src", "typings"]
+// }

@@ -3,7 +3,7 @@ import { createEditor } from "slate"
 import { withReact } from "slate-react"
 
 import { compose } from "lodash/fp"
-import { SlatePlugin, EditorOverrides } from "types"
+import { SlatePlugin, EditorOverrides } from "./types"
 
 /**
  * Creates the editor object and applies all of the passed-in plugins
