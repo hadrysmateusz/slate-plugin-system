@@ -1,7 +1,7 @@
 {
   "name": "@slate-plugin-system/core",
   "description": "Core logic for managing and creating slate plugins",
-  "version": "0.1.1-0",
+  "version": "0.1.1-1",
   "homepage": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core#readme",
   "bugs": {
     "url": "https://github.com/hadrysmateusz/slate-plugin-system/issues"
@@ -21,8 +21,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
-    "build": "webpack",
-    "release": "yarn build && np"
+    "build": "webpack"
   },
   "dependencies": {
     "@types/lodash": "^4.14.149",
