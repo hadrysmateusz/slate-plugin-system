@@ -2,7 +2,6 @@
   "private": true,
   "name": "slate-plugin-system",
   "description": "A plugin system for Slate",
-  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],

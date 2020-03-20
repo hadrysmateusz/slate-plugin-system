@@ -1,7 +1,22 @@
 {
   "name": "@slate-plugin-system/core",
   "description": "Core logic for managing and creating slate plugins",
-  "version": "0.1.0",
+  "version": "0.1.1-0",
+  "homepage": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
