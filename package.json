@@ -3,23 +3,22 @@
   "description": "Core logic for managing and creating slate plugins",
   "version": "0.1.7",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "main": "dist/index.js",
   "module":"dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "clean": "rimraf dist",
-    "prebuild": "yarn clean",
     "build": "rollup -c",
     "watch": "rollup -cw"
   },
   "dependencies": {
     "@types/lodash": "^4.14.149",
     "lodash": "^4.17.15"
-  },  "devDependencies": {
+  },  
+  "devDependencies": {
     "rollup": "^2.1.0",
     "rollup-plugin-typescript2": "^0.26.0",
     "typescript": "^3.8.3"
