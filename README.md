@@ -1,22 +1,16 @@
 ## Disclaimer: Beta
 
-This system is currently in beta, anything and everything in this document and codebase is subject to change
+This package is currently in beta, anything and everything in this document and codebase is subject to change
 
 ## Overview
 
-Plugins should be self-contained plug-and-play packages containing everything needed to add given functionality to a slate app
+Plugins are self-contained plug-and-play packages containing everything needed to add some functionality to a slate app.
 
-- all overrides for props that should be added to the `<Editable />` component
-- all overrides for methods on the `editor` object
-- all other helpers that are needed for using the functionality in the app
+- overrides for methods on the `editor` object
+- overrdies for `<Editable />` props like `renderElement` and `onKeyDown`
+- helper functions that are needed for integrating the functionality with your app
 
-They should not depend on the presence of another plugin (Unless clearly specified and set as a peer dependency)
-
-Any non-essential features that are used to integrate with other plugins but which don't depend on them to function, (e.g. deserialization) should be exposed as a helper that should be passed to the other plugin's options. Or better yet, exposed in a different package (using a mono-repo or multi-repo approach)
-
-All plugins using this system should have their own repositories, and can be linked from this one.
-
-## Installing
+## How to use
 
 Install the core utilities by running:
 
@@ -30,16 +24,22 @@ You will also need to install these peerDependencies:
 npm install slate slate-react react react-dom
 ```
 
-## Get started
+Next you will need to create or install some plugins. Plugins are functions that return an object containing all overrides necessary to implement some functionality. Some Plugins take an options object as an argument. 
 
-Plugins are functions that return an object containing all overrides necessary to implement some functionality. Some Plugins take an options object as an argument. You should create an array containing all of your plugins which you will need to use in two places:
+> Currently there are no official plugins available, see the "Migrating" section, for more information on how you can use plugins, right now.
+
+You should create an array containing all of your plugins which you will need to use in two places:
 
 - the `useCreateEditor` hook
 - the `<Editable />` component's `plugins` prop
 
-An overview of all utilities and components provided by the core library can be found [here](./packages/core/README.md)
+**Important**: keep the plugins array constant by either declaring it outside a React component or in a useMemo hook.
+
+### Basic usage example 
 
 ```js
+import React, { useState } from "react"
+import { Slate } from "slate-react"
 import { Editable, useCreateEditor } from "@slate-plugin-system/core"
 /* import all plugins from their respective packages here */
 
@@ -63,9 +63,68 @@ const App = () => {
 }
 ```
 
-**Important**: keep the plugins array constant by either declaring it outside a React component or in a useMemo hook.
+> An overview of all utilities and components provided by the core library can be found [here](./core_utilities.md)
 
-## Plugin Structure
+## Core API Reference
+
+The `@slate-plugin-system/core` package exposes utilities for creating and consuming slate plugins.
+
+### useCreateEditor
+
+A hook which takes an array of plugins as an argument and returns a memoized editor object.
+
+- It uses `createEditor()` to create the basic slate editor object
+- It then wraps it using `withReact()` (which means you don't have to add withReact to your plugins list)
+- It then wraps it using all `editorOverrides` functions inside your plugins (from right to left)
+- It memoizes the editor object using `useMemo()`
+
+### Editable Component
+
+The slate-plugin-system's `<Editable />` component is a wrapper around Slate's `<Editable />` component. It functions similarly to it with some notable exceptions.
+
+It accepts an additional `plugins` prop that takes an array of plugins.
+
+The following properties accept arrays of functions instead of a single function:
+
+- decorate
+- renderLeaf
+- renderElement
+- onKeyDown
+- onDOMBeforeInput
+
+All of the overrides from the above props and those contained in plugins will be merged and applied automatically.
+
+> Documentation for other non-essential utilities is coming soon, until then feel free to look through the source code
+
+## Creating a plugin
+
+A plugin is an object with various overrides for how slate functions, but it should always be shared as a function that creates said object using an `options` object that is passed to it as a parameter (even if no options are required).
+
+```ts
+import { SlatePlugin } from "@slate-plugin-system/core"
+
+import { withList } from "./editorOverrides"
+import { renderElementList } from "./renderElement"
+import { onKeyDownList } from "./onKeyDown"
+
+interface ListPluginOptions {
+  listTypes: string[]
+}
+
+export const ListPlugin = (options?: ListPluginOptions): SlatePlugin => ({
+  renderElement: renderElementList(options),
+  onKeyDown: onKeyDownList(options),
+  editorOverrides: withList(options)
+})
+```
+
+Plugins should not depend on the presence of another plugin (Unless explicitly specified and set as a peer dependency)
+
+Any non-essential features that are used to integrate with other plugins but which don't depend on them to function, (e.g. deserialization) should be exposed as a helper that should be passed to the other plugin's options.
+
+> All plugins using this system should have their own repositories. If you create a plugin using this system, create an issue or pull request to add a link to it from this repo. Work is in progress to create a template repository for plugins to simplify development. 
+
+### Plugin Structure
 
 A plugin in its simplest form is just an object. It contains properties that override different parts of Slate's logic.
 
@@ -80,7 +139,7 @@ interface SlatePlugin {
 }
 ```
 
-A full reference for every property available inside a plugin can be found [here](./packages/core/PLUGIN_STRUCTURE.md)
+> A full reference for every property available inside a plugin can be found [here](./plugin_structure.md)
 
 ## Migrating
 
