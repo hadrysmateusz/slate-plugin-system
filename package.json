@@ -1,12 +1,14 @@
 {
   "name": "@slate-plugin-system/core",
   "description": "Core logic for managing and creating slate plugins",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "main": "dist/index.js",
-  "module":"dist/index.es.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -14,14 +16,32 @@
     "build": "rollup -c",
     "watch": "rollup -cw"
   },
-  "dependencies": {
-    "@types/lodash": "^4.14.149",
-    "lodash": "^4.17.15"
-  },  
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.26.0",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1"
   },
   "homepage": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core#readme",
   "bugs": {
