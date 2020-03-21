@@ -1,28 +1,54 @@
 {
-  "private": true,
-  "name": "slate-plugin-system",
-  "description": "A plugin system for Slate",
-  "workspaces": [
-    "packages/*"
+  "name": "@slate-plugin-system/core",
+  "description": "Core logic for managing and creating slate plugins",
+  "version": "0.1.9",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "refresh-dependencies": "rm -rf node_modules yarn.lock && lerna clean -y && yarn cache clean && lerna bootstrap",
-    "bootstrap": "lerna bootstrap"
+    "build": "rollup -c",
+    "watch": "rollup -cw"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
-    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "lerna": "^3.20.2",
-    "typescript": "3.8.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
-    "yarn": "^1.22.4",
-    "rimraf": "^3.0.2"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "slate": "^0.57.1",
+    "slate-react": "^0.57.1"
+  },
+  "homepage": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/core"
   }
 }

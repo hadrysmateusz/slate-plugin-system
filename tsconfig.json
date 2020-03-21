@@ -1,23 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "jsx": "react"
+    "declaration": true,
+    "declarationDir": "./dist",
+    "module": "es6",
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "target": "es5",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules", "dist"],
-  "awesomeTypescriptLoaderOptions": {
-    "ignoreDiagnostics": [7005]
-  }
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["node_modules"]
 }
