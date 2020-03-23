@@ -31,4 +31,21 @@ The following properties accept arrays of functions instead of a single function
 
 All of the overrides from the above props and those contained in plugins will be merged and applied automatically.
 
+### composeOverrides
+
+A function used to merge multiple `editorOverrides` functions into one. Useful for using custom logic with more generic, shared overrides.
+
+The function accepts an array of `editorOverrides` functions and returns a single `editorOverrides` function with all of the functionality inside.
+
+```ts
+/* example usage */
+export const withList = composeOverrides([
+  withListCore(),
+  withBreakEmptyReset({ types: ["list_item"] }),
+  withDeleteStartReset({ types: ["list_item"] })
+])
+```
+
+---
+
 > Documentation for other non-essential utilities is coming soon, until then feel free to look through the source code
