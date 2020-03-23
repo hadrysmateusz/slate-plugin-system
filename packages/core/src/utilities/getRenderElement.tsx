@@ -1,6 +1,6 @@
 import React from "react"
 import { RenderElementProps } from "slate-react"
-import { GetRenderElementOptions, RenderElementOptions } from "./types"
+import { GetRenderElementOptions, RenderElementOptions } from "../types"
 
 /**
  * get a generic renderElement function with a custom component

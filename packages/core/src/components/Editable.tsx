@@ -1,6 +1,6 @@
 import React from "react"
 import { NodeEntry, Range } from "slate"
-import { Editable, RenderElementProps, RenderLeafProps, useSlate } from "slate-react"
+import { Editable as VanillaEditable, RenderElementProps, RenderLeafProps, useSlate } from "slate-react"
 import {
 	Decorate,
 	OnDOMBeforeInput,
@@ -8,7 +8,7 @@ import {
 	RenderElement,
 	RenderLeaf,
 	SlatePlugin
-} from "./types"
+} from "../types"
 
 interface Props {
 	[key: string]: any
@@ -24,7 +24,7 @@ interface Props {
 	onKeyDown?: OnKeyDown[]
 }
 
-export const EditablePlugins = ({
+export const Editable = ({
 	plugins = [],
 	decorate: decorateList = [],
 	renderElement: renderElementList = [],
@@ -108,7 +108,7 @@ export const EditablePlugins = ({
 	}
 
 	return (
-		<Editable
+		<VanillaEditable
 			{...props}
 			decorate={decoratePlugins}
 			onDOMBeforeInput={onDOMBeforeInputPlugins}

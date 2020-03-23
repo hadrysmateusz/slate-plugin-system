@@ -1,6 +1,3 @@
-export { EditablePlugins as Editable } from "./Editable"
+export * from "./components"
+export * from "./utilities"
 export * from "./types"
-export * from "./useCreateEditor"
-export * from "./getRenderLeaf"
-export * from "./getRenderElement"
-export * from "./getElement"

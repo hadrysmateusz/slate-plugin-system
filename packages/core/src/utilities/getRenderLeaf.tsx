@@ -1,6 +1,6 @@
 import React from "react"
 import { RenderLeafProps } from "slate-react"
-import { GetRenderLeafOptions, RenderLeafOptions } from "./types"
+import { GetRenderLeafOptions, RenderLeafOptions } from "../types"
 
 /**
  * get a generic renderLeaf function with a custom component
