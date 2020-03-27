@@ -1,14 +1,13 @@
-## Disclaimer: Beta
+# Slate Plugin System
 
-Anything and everything in this document and codebase is subject to change
-
-## Overview
+> Currently in beta: Anything and everything in this document and codebase is subject to change
 
 Plugins are self-contained plug-and-play packages containing everything needed to add some functionality to a slate app.
 
 - overrides for methods on the `editor` object
 - overrdies for `<Editable />` props like `renderElement` and `onKeyDown`
 - helper functions that are needed for integrating the functionality with your app
+
 
 ## How to use
 
@@ -99,7 +98,7 @@ Any non-essential features that are used to integrate with other plugins but whi
 
 > All plugins using this system should have their own repositories. If you create a plugin using this system, create an issue or pull request to add a link to it from this repo. Work is in progress to create a template repository for plugins to simplify development. 
 
-### Plugin Structure
+### Plugin Object Structure
 
 A plugin in its simplest form is just an object. It contains properties that override different parts of Slate's logic.
 
@@ -115,6 +114,14 @@ interface SlatePlugin {
 ```
 
 > A full reference for every property available inside a plugin can be found [here](./plugin_structure.md)
+
+### Plugin Repository Structure
+
+Check out the [template directory](https://github.com/hadrysmateusz/slate-plugin-system.git/tree/master/packages/template") to learn how a repo should be structured. A template repository is coming soon.
+
+### Creating Plugin components
+
+> A guide for creating individual plugin components (renderElement, editorOverrides etc.) along with an explanation of useful helpers and type is coming soon.
 
 ## Migrating
 

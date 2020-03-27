@@ -41,6 +41,6 @@
     "slate-react": "^0.57.1"
   },
   "homepage": "https://github.com/hadrysmateusz/slate-plugin-system#readme",
-  "repository": "https://github.com/hadrysmateusz/slate-plugin-system.git/tree/master/packages/core",
+  "repository": "https://github.com/hadrysmateusz/slate-plugin-system.git",
   "bugs": "https://github.com/hadrysmateusz/slate-plugin-system/issues"
 }
