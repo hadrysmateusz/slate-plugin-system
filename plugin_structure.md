@@ -57,3 +57,20 @@ Function for adding [decorations](https://docs.slatejs.org/concepts/08-rendering
 <!-- TODO: this section needs to be written -->
 
 _This section is a work in progress_
+
+## Plugin Repo Structure
+
+- components 
+  - single **components.tsx** file (that can export multiple components)
+  - **components** folder (with components re-exported from an index.ts file)
+- helpers
+  - single **helpers.ts** file (that can export multiple small helpers)
+  - **components** folder (with complex helpers re-exported from an index.ts file)
+- editorOverrides.ts
+- decorate.ts
+- renderLeaf.ts
+- renderElement.ts
+- onKeyDown.ts
+- types.ts
+- plugin.ts
+- index.ts
