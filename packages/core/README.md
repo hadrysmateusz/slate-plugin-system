@@ -115,7 +115,7 @@ interface SlatePlugin {
 
 ### Plugin Repository Structure
 
-Check out the [template directory](https://github.com/hadrysmateusz/slate-plugin-system.git/tree/master/packages/template") to learn how a repo should be structured. A template repository is coming soon.
+Check out the [template directory](https://github.com/hadrysmateusz/slate-plugin-system/tree/master/packages/template) to learn how a repo should be structured. A template repository is coming soon.
 
 ### Creating Plugin components
 
