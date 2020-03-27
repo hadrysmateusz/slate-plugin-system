@@ -68,7 +68,7 @@ const App = () => {
 
 The `@slate-plugin-system/core` package exposes utilities for creating and consuming slate plugins.
 
-> See the [full api reference](./packages/core/README.md) here
+> See the [full api reference](./core_api_reference.md) here
 
 ## Creating plugins
 

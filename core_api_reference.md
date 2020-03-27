@@ -1,19 +1,6 @@
-## Slate Plugin System - Core
+# Core API Reference
 
-This package contains the core utilities for creating and consuming slate plugins.
-
-> For a full explanation of how the slate-plugin-system works, see the [ROOT REPOSITORY](../../README.md)
-
-## Core API Reference
-
-### useCreateEditor
-
-A hook which takes an array of plugins as an argument and returns a memoized editor object.
-
-- It uses `createEditor()` to create the basic slate editor object
-- It then wraps it using `withReact()` (which means you don't have to add withReact to your plugins list)
-- It then wraps it using all `editorOverrides` functions inside your plugins (from right to left)
-- It memoizes the editor object using `useMemo()`
+## React Components
 
 ### Editable Component
 
@@ -31,6 +18,19 @@ The following properties accept arrays of functions instead of a single function
 
 All of the overrides from the above props and those contained in plugins will be merged and applied automatically.
 
+## React Hooks
+
+### useCreateEditor
+
+A hook which takes an array of plugins as an argument and returns a memoized editor object.
+
+- It uses `createEditor()` to create the basic slate editor object
+- It then wraps it using `withReact()` (which means you don't have to add withReact to your plugins list)
+- It then wraps it using all `editorOverrides` functions inside your plugins (from right to left)
+- It memoizes the editor object using `useMemo()`
+
+## Helpers
+
 ### composeOverrides
 
 A function used to merge multiple `editorOverrides` functions into one. Useful for using custom logic with more generic, shared overrides.
@@ -45,7 +45,5 @@ export const withList = composeOverrides([
   withDeleteStartReset({ types: ["list_item"] })
 ])
 ```
-
----
 
 > Documentation for other non-essential utilities is coming soon, until then feel free to look through the source code
