@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { createEditor } from "slate"
+import { createEditor, Editor } from "slate"
 import { withReact } from "slate-react"
 
 import { SlatePlugin } from "../types"
@@ -11,7 +11,7 @@ import { SlatePlugin } from "../types"
 
 export const useCreateEditor = (plugins: SlatePlugin[] = []) => {
   return useMemo(()=>{
-    let editor = withReact(createEditor())
+    let editor = withReact(createEditor()) as Editor
     // we reverse the array to execute functions from right to left
     plugins.reverse().forEach(plugin=>{
 			if (plugin.editorOverrides) {
