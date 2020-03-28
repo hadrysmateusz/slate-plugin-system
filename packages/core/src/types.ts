@@ -1,16 +1,16 @@
-import { NodeEntry, Range } from "slate"
-import { RenderElementProps, RenderLeafProps, ReactEditor } from "slate-react"
+import { NodeEntry, Range, Editor } from "slate"
+import { RenderElementProps, RenderLeafProps } from "slate-react"
 
 // Factory Generic for creating Plugin Components
 type Factory<T> = (options?: Object) => T
 
 // Plugin Component Types
-export type EditorOverrides = (editor: ReactEditor) => ReactEditor
-export type OnKeyDown = (e: any, editor: ReactEditor, props?: any) => void
+export type EditorOverrides = (editor: Editor) => Editor
+export type OnKeyDown = (e: any, editor: Editor, props?: any) => void
 export type RenderElement = (props: RenderElementProps) => JSX.Element | undefined
 export type RenderLeaf = (props: RenderLeafProps) => JSX.Element
 export type Decorate = (entry: NodeEntry) => Range[]
-export type OnDOMBeforeInput = (event: Event, editor: ReactEditor) => void
+export type OnDOMBeforeInput = (event: Event, editor: Editor) => void
 
 // Plugin Component Factory Types
 export type EditorOverridesFactory = Factory<EditorOverrides>

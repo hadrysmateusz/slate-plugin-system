@@ -6,7 +6,7 @@ import { EditorOverrides } from "../types"
  * that calls them all from right to left
  * @param overridesList List of EditorOverrides functions
  */
-export const composeOverrides = (overridesList: EditorOverrides[]): EditorOverrides<Editor> => {
+export const composeOverrides = (overridesList: EditorOverrides[]): EditorOverrides => {
   return <T extends Editor>(editor: T) => {
     let e = editor
     overridesList.reverse().forEach((withOverrides) => {
