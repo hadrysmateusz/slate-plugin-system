@@ -1,7 +1,7 @@
 {
   "name": "@slate-plugin-system/core",
   "description": "Core logic for managing and creating slate plugins",
-  "version": "0.1.15-9",
+  "version": "0.1.15",
   "author": "Mateusz Hadryś <hadrys.mateusz86@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
