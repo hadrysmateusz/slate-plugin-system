@@ -15,7 +15,7 @@ export type EditorOverrides<E extends Editor = Editor, O = E> = (editor: E) => O
  *  OnKeyDown accepts an optional editor type that defaults to the default Editor
  */
 export type OnKeyDown<E extends Editor = Editor> = (
-  e: any,
+  e: KeyboardEvent,
   editor: E,
   props?: any
 ) => void
@@ -24,7 +24,7 @@ export type OnKeyDown<E extends Editor = Editor> = (
  *  OnDOMBeforeInput accepts an optional editor type that defaults to the default Editor
  */
 export type OnDOMBeforeInput<E extends Editor = Editor> = (
-  event: Event,
+  event: InputEvent,
   editor: E
 ) => void
 
