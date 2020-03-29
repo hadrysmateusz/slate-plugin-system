@@ -1,33 +1,50 @@
 import { NodeEntry, Range, Editor } from "slate"
 import { RenderElementProps, RenderLeafProps } from "slate-react"
 
-// Basic plugin
-interface PluginOptions {}
+/**
+ *  EditorOverrides generic takes two types:
+ *
+ * - The editor it will receive (E)
+ * - The editor it will return (O)
+ *
+ *  It uses smart defaults to simplify development
+ */
+export type EditorOverrides<E extends Editor = Editor, O = E> = (editor: E) => O
 
-// Factory Generic for creating Plugin Components
-type Factory<T> = (options?: PluginOptions) => T
+/**
+ *  OnKeyDown accepts an optional editor type that defaults to the default Editor
+ */
+export type OnKeyDown<E extends Editor = Editor> = (
+  e: any,
+  editor: E,
+  props?: any
+) => void
 
-// Plugin Component Types
-export type EditorOverrides<E = Editor> = (editor: E) => E
-export type OnDOMBeforeInput<E = Editor> = (event: Event, editor: E) => void
-export type OnKeyDown<E = Editor> = (e: any, editor: E, props?: any) => void
+/**
+ *  OnDOMBeforeInput accepts an optional editor type that defaults to the default Editor
+ */
+export type OnDOMBeforeInput<E extends Editor = Editor> = (
+  event: Event,
+  editor: E
+) => void
+
+/**
+ *  RenderElement can return undefined in case the criteria for rendering isn't met
+ */
 export type RenderElement = (props: RenderElementProps) => JSX.Element | undefined
+
+/**
+ *  RenderLeaf always returns a JSX element (even if unmodified) to support multiple marks on a node
+ */
 export type RenderLeaf = (props: RenderLeafProps) => JSX.Element
+
 export type Decorate = (entry: NodeEntry) => Range[]
 
-// Plugin Component Factory Types
-export type EditorOverridesFactory<E = Editor> = Factory<EditorOverrides<E>>
-export type OnDOMBeforeInputFactory<E = Editor> = Factory<OnDOMBeforeInput<E>>
-export type OnKeyDownFactory<E = Editor> = Factory<OnKeyDown<E>>
-export type RenderElementFactory = Factory<RenderElement>
-export type RenderLeafFactory = Factory<RenderLeaf>
-export type DecorateFactory = Factory<Decorate>
-
 // Plugin Options
-export interface SlatePlugin<E = Editor> {
-  editorOverrides?: EditorOverrides<E>
-  onDOMBeforeInput?: OnDOMBeforeInput<E>
-  onKeyDown?: OnKeyDown<E>
+export interface SlatePlugin {
+  editorOverrides?: EditorOverrides
+  onDOMBeforeInput?: OnDOMBeforeInput
+  onKeyDown?: OnKeyDown
   renderElement?: RenderElement
   renderLeaf?: RenderLeaf
   decorate?: Decorate
@@ -55,10 +72,10 @@ export interface RenderInlineOptions {
 }
 
 // Plugin Options
-export interface ElementPluginOptions extends PluginOptions, RenderElementOptions {}
-export interface MarkPluginOptions extends PluginOptions, RenderInlineOptions {
+export interface ElementPluginOptions extends RenderElementOptions {}
+export interface MarkPluginOptions extends RenderInlineOptions {
   hotkey?: string
 }
-export interface InlinePluginOptions extends PluginOptions, RenderInlineOptions {
+export interface InlinePluginOptions extends RenderInlineOptions {
   hotkey?: string
 }
