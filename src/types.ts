@@ -1,8 +1,11 @@
 import { NodeEntry, Range, Editor } from "slate"
 import { RenderElementProps, RenderLeafProps } from "slate-react"
 
+// Basic plugin
+interface PluginOptions {}
+
 // Factory Generic for creating Plugin Components
-type Factory<T> = (options?: Object) => T
+type Factory<T> = (options?: PluginOptions) => T
 
 // Plugin Component Types
 export type EditorOverrides<E = Editor> = (editor: E) => E
@@ -52,10 +55,10 @@ export interface RenderInlineOptions {
 }
 
 // Plugin Options
-export interface ElementPluginOptions extends RenderElementOptions {}
-export interface MarkPluginOptions extends RenderInlineOptions {
+export interface ElementPluginOptions extends PluginOptions, RenderElementOptions {}
+export interface MarkPluginOptions extends PluginOptions, RenderInlineOptions {
   hotkey?: string
 }
-export interface InlinePluginOptions extends RenderInlineOptions {
+export interface InlinePluginOptions extends PluginOptions, RenderInlineOptions {
   hotkey?: string
 }
