@@ -41,10 +41,10 @@ export type RenderLeaf = (props: RenderLeafProps) => JSX.Element
 export type Decorate = (entry: NodeEntry) => Range[]
 
 // Plugin Options
-export interface SlatePlugin {
-  editorOverrides?: EditorOverrides
-  onDOMBeforeInput?: OnDOMBeforeInput
-  onKeyDown?: OnKeyDown
+export interface SlatePlugin<E extends Editor = Editor, O = E> {
+  editorOverrides?: EditorOverrides<E,O>
+  onDOMBeforeInput?: OnDOMBeforeInput<E>
+  onKeyDown?: OnKeyDown<E>
   renderElement?: RenderElement
   renderLeaf?: RenderLeaf
   decorate?: Decorate
